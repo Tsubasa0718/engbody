@@ -1,0 +1,15 @@
+@use"../function/_mixin.scss" as *;
+
+.section-title{
+    padding-top: px-to-rem(40px);
+    font-size: px-clamp(40,64,375,2000);
+    color: var(--base-color);
+ @include responsive("tablet"){
+   padding: 0;
+ }
+}
+
+.section-subtitle{
+   font-size: px-clamp(14,20,375,2000);
+   color: var(--base-color); 
+}

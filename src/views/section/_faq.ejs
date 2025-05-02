@@ -1,0 +1,41 @@
+<section class="faq">
+    <div class="container">
+        <h3 class="section-title faq__title">FAQ</h3>
+        <span class="section-subtitle faq__subtitle">よくあるご質問</span>
+        <!-- accordion -->
+        <div class="accordionBody">
+            <div class="accordion">
+                <% accordionData.forEach((item, index) =>{ %>
+                 <div class="accordion__item">
+                    <button 
+                     type="button" 
+                     class="accordion__btn"
+                     id="accordionBtn<%= index %>"
+                     aria-expanded="false"
+                     aria-controls="accordionContent<%= index %>"
+                     >
+                     <span class="accordion__mark">Q</span>
+                     <%= item.question %>
+                     <span class="accordion__arrow"></span>
+                    </button>
+                   
+                    <div 
+                      class="accordion__content"
+                      id="accordionContent<%= index %>" 
+                      aria-hidden="true"
+                      aria-labelledby="accordionBtn<%= index %>"
+                      aria-live="polite"
+                      >
+                       <div class="accordion__contentInner">
+                           <span class="accordion__mark">A</span>
+                           <p class="accordion__answer">
+                            <%= item.answer %>
+                        </p>
+                       </div>
+                    </div>
+                 </div>
+               <% }) %>
+            </div>
+        </div>
+    </div>
+</section> 

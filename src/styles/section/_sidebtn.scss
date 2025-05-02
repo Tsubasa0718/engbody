@@ -1,0 +1,56 @@
+@use"../function/_mixin.scss" as *;
+
+.sideBtnBody{
+    position: fixed;
+    z-index: 1;
+    right: px-to-rem(20px);
+    bottom: px-to-rem(20px);
+}
+
+.sideBtn{
+  position: relative;
+  display: inline-block;
+  width: px-clamp(40,80,375,2000);
+  height: px-clamp(40,80,375,2000);
+  border-radius: 50%;
+  background-color: var(--base-color);
+  box-shadow: 0 0 px-to-rem(10px) 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: .5s;
+ 
+  &__arrow{
+    position: relative;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: px-clamp(13.9,30.3,375,2000);
+    height: px-clamp(6.9,14.1,375,2000);
+    &::before,
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: calc(50% - 1px);
+        width: px-to-rem(3.5px);
+        height: px-clamp(11,22,375,2000);
+        border-radius: px-to-rem(9999px);
+        background-color: var(--main-color);
+        transform-origin: 50% 1px;  
+    }
+    &::before{
+        transform: rotate(45deg);
+    }
+    &::after{
+        transform: rotate(-45deg);
+    }
+  }
+}
+
+.sideBtn.is-show{
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,0 +1,13 @@
+@use"../function/_mixin.scss" as *;
+
+.studio{
+  margin-top: px-clamp(40,60,375,2000);
+&__title{
+    color: var(--section-color);
+}
+&__subtitle{
+    color: var(--main-color);
+    font-weight: bold;
+}
+}
+

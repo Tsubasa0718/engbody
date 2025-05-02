@@ -1,0 +1,41 @@
+@use"../function/_mixin.scss" as *;
+
+.btn{
+  display: inline-block;
+  text-align: center;
+  border-radius: px-to-rem(100px);
+}
+
+.btn--sm{
+ @extend .btn;
+ width: px-clamp(184,300,375,2000);
+ padding: px-clamp(12,15,375,2000) 0;
+ font-size: px-clamp(12,16,375,2000);
+ font-weight: bold;
+ background-color: var(--main-color);
+ color: var(--base-color);
+ transition: .3s;
+ &:hover{
+    opacity: .8;
+ }
+}
+
+.btn--md{
+    @extend .btn--sm;
+    width: px-clamp(220,370,375,2000);
+    padding: px-clamp(20,30,375,2000) 0;
+    font-size: px-clamp(13,20,375,2000);
+    letter-spacing: .05em;
+}
+
+.btn--md-wide{
+  @extend .btn--md;
+  width: px-clamp(300,360,375,2000)
+} 
+
+.btn--lg{
+  @extend .btn--md-wide;
+  background-color: var(--base-color);
+  color: var(--main-color);
+}
+

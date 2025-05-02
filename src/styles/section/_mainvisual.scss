@@ -1,0 +1,130 @@
+@use "../function/_mixin.scss" as *;
+
+.mainvisual {
+  position: relative;
+  height: px-clamp(410, 680, 375, 2000);
+
+  &__image {
+    position: absolute;
+    top: px-clamp(-60,-130,375,2000);
+    right: 0;
+    z-index: -1;
+  }
+
+  &__imageBg {
+    background-image: url(../img/bg_mv.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 70%;
+    height: px-clamp(510, 800, 375, 2000);
+    border-bottom-left-radius: px-to-rem(50px);
+    opacity: 0;
+    transition: .5s;
+    &.is-visible {
+      animation: fadeInImage 1s ease-out .3s forwards;
+    }
+  }
+
+  &__desc {
+    position: absolute;
+    top: px-clamp(90, 140, 375, 2000);
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: px-clamp(41.3, 90, 375, 2000);
+    font-style: italic;
+    gap: 0;
+
+    &Text {
+      position: relative;
+      display: inline-block;
+      overflow: hidden;
+      opacity: 0;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--main-color);
+        transform: scaleX(0);
+        transform-origin: left;
+        z-index: 1;
+      }
+
+      .text {
+        position: relative;
+        display: inline-block;
+        background-color: var(--base-color);
+        padding: 0 px-to-rem(10px);
+        opacity: 0;
+        z-index: 2;
+      }
+    }
+  }
+
+  &__and {
+    color: var(--main-color);
+  }
+
+  &__subtitle {
+    margin-top: px-clamp(10, 20, 375, 2000);
+    font-size: px-clamp(13, 28, 375, 2000);
+    font-weight: bold;
+    background-color: var(--base-color);
+  }
+
+  &__btn {
+    margin-top: px-clamp(15, 30, 375, 2000);
+  }
+}
+
+/* ===== アニメーション・トリガー用のスタイル ===== */
+.mainvisual__titleText.is-visible {
+  opacity: 1;
+
+  &::before {
+    animation: bgLRextendAnime 1.2s ease forwards;
+  }
+
+  .text {
+    animation: fadeInText 0.3s ease .6s forwards;
+  }
+}
+
+/* ===== アニメーション定義 ===== */
+@keyframes bgLRextendAnime {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  50.001% {
+    transform-origin: right;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInImage {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}

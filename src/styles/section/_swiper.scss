@@ -1,0 +1,63 @@
+@use"../function/_mixin.scss" as *;
+
+
+.swiper-container{
+   margin-top: px-to-rem(30px);
+   position: relative;
+   padding-bottom: px-to-rem(40px);
+}
+
+.swiper{
+  position: relative;
+  user-select: none;
+}
+
+.swiper-pagination{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background: #D0D0D0;
+
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--main-color);
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  width: px-clamp(40,60,375,2000);
+  height: px-clamp(40,60,375,2000);
+  background: var(--base-color);
+  border-radius: 50%;
+   &::after {
+    display: block;
+    content: '';
+    width: px-to-rem(8px);
+    height: px-to-rem(8px);
+    border-top: px-to-rem( 3px) solid var(--main-color);
+    border-right: px-to-rem( 3px) solid var(--main-color);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.swiper-button-prev {
+  left: 0;
+  &::after {
+    transform: translate(-50%, -50%) rotate(-135deg);
+  }
+}
+
+.swiper-button-next {
+  right: 0;
+  &::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+}

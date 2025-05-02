@@ -1,0 +1,26 @@
+@use"../function/_mixin.scss" as *;
+
+.footer{
+  background-color: var(--text-color);
+  &__body{
+    padding: px-clamp(50,100,375,2000);
+  }
+  &__logo,
+  &__linkBody{
+    text-align: center;
+  }
+  &__linkBody{
+    margin-top: px-to-rem(20px);
+  }
+  &__link{
+    font-size: px-to-rem(20px);
+    font-weight: bold;
+    color: var(--base-color);
+    transition: .5s;
+  &:hover{
+    text-decoration: underline;
+  }  
+ }
+
+
+}

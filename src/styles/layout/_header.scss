@@ -1,0 +1,28 @@
+@use"../function/_mixin.scss" as *;
+
+.header{
+  transition:  background-color .3s;
+  &__body{
+   padding: px-clamp(12,24,375,2000) px-to-rem(20px);
+  } 
+  &__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  } 
+  &__btn{
+    opacity: 0;
+    transition: .3s;
+    &.is-show{
+      opacity: 1;
+    }
+  }
+  &.is-show{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    width: 100%;
+    background-color: var(--base-color);  
+  }
+}

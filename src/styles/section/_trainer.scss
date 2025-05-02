@@ -1,0 +1,72 @@
+@use "../function/_mixin.scss" as *;
+
+.trainer {
+  margin-top: px-clamp(40, 60, 375, 2000);
+
+  &__body {
+    margin-top: px-to-rem(20px);
+  }
+
+  &__wrapper {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+
+    &.is-active {
+      display: grid;
+      opacity: 1;
+      animation: fadeInTab 0.6s ease;
+    }
+
+    grid-template-columns: repeat(1, 1fr);
+    row-gap: px-to-rem(15px);
+    align-items: stretch;
+
+    @include responsive("phone") {
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: px-to-rem(15px);
+    }
+
+    @include responsive("desktop") {
+      row-gap: 0;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__content {
+    background-color: var(--base-color);
+    border-radius: px-to-rem(10px);
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__textBody {
+    padding: px-to-rem(20px);
+  }
+  &__text{
+    font-size: px-to-rem(15px);
+    line-height: 1.7;
+  }
+}
+
+// アニメーション
+@keyframes fadeInTab {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

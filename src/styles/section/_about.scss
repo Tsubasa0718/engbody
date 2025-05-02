@@ -1,0 +1,82 @@
+@use"../function/_mixin.scss" as *;
+
+.about{
+ margin-top: px-clamp(20,30,375,2000);
+ &__wrapper{
+    display: grid;
+    row-gap: px-clamp(30,100,375,2000);
+ }
+ &__content{
+    display: flex;
+    flex-direction: column-reverse;
+   @include responsive("tablet"){
+    flex-direction: row;    
+  }
+ }
+ &__content:nth-child(1){
+    @include responsive("tablet"){
+        flex-direction: row-reverse;    
+    }
+}
+ &__content:nth-child(2){
+    @include responsive("tablet"){
+      margin-top: px-to-rem(45px);
+    }
+   .about__desc{
+    @include responsive("tablet"){
+        left: px-to-rem(45px);
+    }
+   }
+}
+
+ &__desc{
+    margin: px-to-rem(-10px) px-to-rem(20px) 0  px-to-rem(20px);
+    padding: px-clamp(40,60,375,2000) px-clamp(30,60,375,2000) px-clamp(40,60,375,2000) px-clamp(40,60,375,2000);
+    background-color: var(--base-color);
+    border-radius: px-to-rem(8px);
+    box-shadow: 0px 0px px-to-rem(20px) 0px rgba(0, 0, 0, 0.1);
+    @include responsive("tablet"){
+       position: relative;
+       top: px-to-rem(45px);
+       left: px-to-rem(-45px);
+       z-index: 1;
+       margin: 0;
+       width: 40%;
+      }
+ }
+ &__image{
+    @include responsive("tablet"){
+        width: calc(60% + 45px);
+        flex-shrink: 1;
+        
+   }
+ }
+ &__title{
+    margin-top: px-to-rem(20px);
+    font-size: px-clamp(22,32,375,2000);
+    font-weight: bold;
+    line-height: 1.5;
+ }
+ &__subtitle{
+    font-size: px-clamp(16,24,375,2000);
+    line-height: 1.15;
+    color: var(--main-color);
+ }
+ .about-food{
+    color: var(--food-color);
+ }
+ &__textBody{
+    margin-top: px-to-rem(15px);
+ }
+ &__text{
+    font-size: px-clamp(14,15,375,2000);
+    line-height: 1.7;
+    @include responsive("tablet"){
+     line-height: 1.8;
+    }
+ }
+ &__btn{
+    margin-top: px-clamp(40,115,375,2000);
+    text-align: center;
+ }
+}

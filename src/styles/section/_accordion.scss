@@ -1,0 +1,70 @@
+@use"../function/_mixin.scss" as *;
+
+.accordionBody{
+  margin-top: px-to-rem(30px);
+}
+
+.accordion{
+ &__item{
+    border-bottom: px-to-rem(1px) solid var(--accordion-color);
+ }   
+ &__mark{
+     margin-right: px-to-rem(18px);
+     font-size: px-to-rem(26px);
+     font-weight: bold;
+     line-height: 1.15;
+     color: var(--main-color);
+    }
+ &__btn{
+    position: relative;
+    width: 100%;
+    padding: px-to-rem(15px) 0;
+ }
+ &__arrow{
+    position: relative;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    right: px-to-rem(5px);
+    transform: translateY(-50%);
+    width: px-to-rem(13.9px);
+    height: px-to-rem(8.9px);
+    transition: .3s;
+    &::before,
+    &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        left: calc(50% - 1.5px);
+        width: px-to-rem(3px);
+        height: px-to-rem(11px);
+        border-radius: px-to-rem(9999px);
+        background-color: var(--main-color);
+        transform-origin: 50% 1.5px;
+    }
+    &::before{
+        transform: rotate(45deg);
+    }
+    &::after{
+        transform: rotate(-45deg);
+    }
+    .accordion__btn[aria-expanded="true"] & {
+      transform: translateY(-50%) rotate(180deg);
+    }
+}
+ &__content{
+    overflow: hidden;
+    transition: max-height .3s;
+    max-height: 0;
+ }
+ &__contentInner{
+    display: flex;
+    padding: px-to-rem(15px) 0;
+ }
+ &__answer{
+    display: inline-block;
+    padding-top: px-to-rem(4px);
+    padding-left: px-to-rem(13px);
+ }
+
+}

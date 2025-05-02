@@ -1,0 +1,60 @@
+<section class="price">
+    <svg class="section-border-top" viewBox="0 0 1440 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1440 64L1360 69.3C1280 75 1120 85 960 74.7C800 64 640 32 480 16C320 0 160 0 80 0H0V96H80C160 96 320 96 480 96C640 96 800 96 960 96C1120 96 1280 96 1360 96H1440V64Z" fill="#EB51C2"/>
+    </svg>
+    <div class="bg">
+        <div class="container">
+            <h3 class="section-title">Price</h3>
+            <span class="section-subtitle">料金</span>
+            <div class="price__body">
+               <div class="price__wrapper">
+                <% priceData.forEach(item => { %>
+                    <div class="price__card jpText <%= item.isRecommended ? 'recommended' : '' %>">
+                        <div class="price__header">
+                            <div class="price__titleWrap">
+                                <h4 class="price__title"><%= item.corse %></h4>
+                                <div class="price__amount">
+                                    <span class="price__number"><span class="price__mark">¥</span><%= item.price.toLocaleString() %></span>
+                                    <div class="price__entry">
+                                        <span>(入会金¥<%= item.entryFee.toLocaleString() %>)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <% if (item.isRecommended) { %>
+                                <span class="price__badge">オススメ!</span>
+                            <% } %>
+                        </div>
+                        <div class="price__content">
+                            <div class="price__features">
+                                <div class="price__feature">
+                                    <h5 class="price__featureTitle"><%= item.features.rental.title %></h5>
+                                    <ul class="price__featureList">
+                                        <% item.features.rental.items.forEach(rentalItem => { %>
+                                            <li class="price__featureItem"><%= rentalItem %>,</li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                                <div class="price__feature">
+                                    <h5 class="price__featureTitle"><%= item.features.restaurant.title %></h5>
+                                    <p class="price__featureText"><%= item.features.restaurant.status %></p>
+                                </div>
+                                <div class="price__feature">
+                                    <h5 class="price__featureTitle"><%= item.features.mealGuidance.title %></h5>
+                                    <p class="price__featureText"><%= item.features.mealGuidance.status %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }); %>
+                 <div class="price__scrollLabel pc-only">
+                    <span class="price__scrollArrow"></span>
+                    <span class="price__scrollText">スクロール</span>
+                 </div>
+               </div>
+            </div>
+        </div>
+    </div>
+    <svg class="section-border-bottom" viewBox="0 0 1440 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 32.0001L80 26.7001C160 21.0001 320 11.0001 480 21.3C640 32.0001 800 64.0001 960 80.0001C1120 96.0001 1280 96.0001 1360 96.0001H1440V6.10352e-05H1360C1280 6.10352e-05 1120 6.10352e-05 960 6.10352e-05C800 6.10352e-05 640 6.10352e-05 480 6.10352e-05C320 6.10352e-05 160 6.10352e-05 80 6.10352e-05H0V32.0001Z" fill="#EB51C2"/>
+    </svg>
+</section>

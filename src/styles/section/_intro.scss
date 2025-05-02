@@ -1,0 +1,35 @@
+@use"../function/_mixin.scss" as *;
+
+.intro{
+margin-top: px-to-rem(-80px);
+&__title,
+&__subtitle{
+  text-align: center;
+}
+&__title{
+  font-size: px-clamp(56,108,375,2000);
+  font-weight: bold;
+  font-style: italic;
+  color: var(--main-color);
+}
+&__subtitle{
+  font-size: px-clamp(16,32,375,2000);
+  font-weight: bold;
+  line-height: 1.15;
+  letter-spacing: .1em;
+}
+&__highlight{
+  color: var(--main-color);
+}
+&__textBody{
+  margin-top: px-to-rem(25px);
+}
+&__text{
+  font-size: px-clamp(15,16,375,2000);
+  line-height: 1.8;
+  @include responsive("tablet"){
+    text-align: center;
+    line-height: 2;
+  }
+}
+}

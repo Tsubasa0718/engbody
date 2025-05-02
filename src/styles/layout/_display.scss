@@ -1,0 +1,8 @@
+@use"../function/_mixin.scss" as *;
+
+.pc-only{
+  display: block;
+ @include responsive("tablet"){
+  display: none;
+ }
+}

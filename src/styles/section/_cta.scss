@@ -1,0 +1,21 @@
+@use"../function/_mixin.scss" as *;
+
+.cta{
+    margin-top: px-clamp(50,70,375,2000);
+ &__title,
+ &__btn{
+    text-align: center;
+ }
+ &__title{
+    font-size: px-clamp(26,64,375,2000);
+    font-weight: bold;
+    color: var(--base-color);
+ }
+ &__desc{
+    padding: px-clamp(30,50,375,2000) 0;
+    background-color: var(--main-color);
+ }
+ &__btn{
+    margin-top: px-to-rem(10px);
+ }
+}
