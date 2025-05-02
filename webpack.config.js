@@ -20,7 +20,7 @@ module.exports = {
         hot: true, // ホットリロードを有効化
         watchFiles: ["src/**/*"], // 監視対象のファイル
     },
-    mode: "development",
+    mode: "production",
     module: {
         rules: [
             {

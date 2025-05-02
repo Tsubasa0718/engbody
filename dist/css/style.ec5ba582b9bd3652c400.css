@@ -932,6 +932,11 @@ th {
   width: 4.6875rem;
   height: 4.6875rem;
   background-color: rgba(0, 0, 0, 0.6);
+  transition: 0.3s;
+}
+.price__scrollLabel.is-hidden {
+  opacity: 0;
+  pointer-events: none; /* イベントを無効化 */
 }
 .price__scrollText {
   position: absolute;

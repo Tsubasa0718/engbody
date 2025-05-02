@@ -72,7 +72,7 @@
     line-height: 1.15;
   }
   &__mark{
-    font-size: px-to-rem(40px); 
+    font-size: px-to-rem(40px);
   }
   &__feature{
     padding: px-to-rem(30px) 0;
@@ -104,6 +104,11 @@
     width: px-to-rem(75px);
     height: px-to-rem(75px);
     background-color: rgba(0, 0, 0, 0.6);
+    transition: .3s;
+    &.is-hidden{
+      opacity: 0;
+      pointer-events: none; /* イベントを無効化 */
+    }
   }
   &__scrollText{
     position: absolute;
